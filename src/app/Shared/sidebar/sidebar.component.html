@@ -1,0 +1,42 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">CheckHuapilla</h1>
+      <button mat-icon-button class="perfil" >
+        <mat-icon matSuffix>person</mat-icon>      
+      </button>
+      <button mat-icon-button class="notificaciones" >
+        <mat-icon matSuffix>notifications</mat-icon>
+      </button>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="'over'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"> 
+        <mat-nav-list>
+          <a mat-list-item routerLink="citas" >          
+            CITAS
+          </a>
+          <a mat-list-item routerLink="clientes" >          
+            CLIENTES
+          </a>
+          <a mat-list-item routerLink="trabajadores" >          
+            TRABAJADORES
+          </a>
+          <a mat-list-item routerLink="vehiculos" >          
+            VEHICULOS
+          </a>
+          <a mat-list-item routerLink="calendario" >          
+            CALENDARIO
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+ 
